@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Horizon 每日文章 2026-06-22</title>
+  <meta name="description" content="2026-06-22 的 Horizon 简报整理成一篇单文，重点集中在三条最值得后续追踪的消息：三星电子向全球员工部署 ChatGPT Enterprise 与 Codex；OpenAI 模型协助医生识别罕见儿童遗传病并新增 18 例诊断；sqlite-utils 4.0rc1 引入迁移机制与嵌套事务抽象。这篇文章保留英文原始摘要、完整中文翻译和关键词汇，目的不是重复新闻，而是把当天最有用的信息压缩成一篇适合回看、搜索和收藏的学习材料。">
+  <style>
+    :root {
+      --bg: #f4efe4;
+      --paper: #fffaf0;
+      --ink: #1f1f1a;
+      --muted: #6b655d;
+      --line: #d8cebd;
+      --accent: #8d4b2b;
+      --accent-soft: #efe0d0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Iowan Old Style", "Palatino Linotype", "Times New Roman", serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top, rgba(141,75,43,0.08), transparent 36%),
+        linear-gradient(180deg, #f8f3ea 0%, var(--bg) 100%);
+      line-height: 1.75;
+    }
+    main {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 56px 20px 80px;
+    }
+    header {
+      margin-bottom: 36px;
+      padding: 28px;
+      border: 1px solid var(--line);
+      background: rgba(255,250,240,0.85);
+      backdrop-filter: blur(8px);
+    }
+    h1, h2, h3 {
+      line-height: 1.2;
+      margin: 0 0 12px;
+    }
+    h1 {
+      font-size: clamp(2rem, 4vw, 3.2rem);
+    }
+    h2 {
+      font-size: clamp(1.5rem, 3vw, 2rem);
+    }
+    h3 {
+      font-size: 1.05rem;
+      margin-top: 22px;
+    }
+    .deck, .subtitle, .meta, .eyebrow {
+      color: var(--muted);
+    }
+    .deck {
+      font-size: 1.05rem;
+      margin-top: 14px;
+    }
+    .card {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      padding: 28px;
+      margin-top: 24px;
+      box-shadow: 0 12px 28px rgba(74, 52, 35, 0.06);
+    }
+    .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.78rem;
+      margin-bottom: 10px;
+    }
+    .subtitle {
+      margin-top: -2px;
+      font-style: italic;
+    }
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 16px;
+      font-size: 0.92rem;
+      margin: 16px 0 10px;
+    }
+    .tag {
+      display: inline-block;
+      margin: 0 8px 8px 0;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 0.86rem;
+    }
+    a {
+      color: var(--accent);
+    }
+    ul {
+      padding-left: 20px;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <div class="eyebrow">Horizon Daily Essay</div>
+      <h1>Horizon 每日文章 2026-06-22</h1>
+      <p class="deck">2026-06-22 的 Horizon 简报整理成一篇单文，重点集中在三条最值得后续追踪的消息：三星电子向全球员工部署 ChatGPT Enterprise 与 Codex；OpenAI 模型协助医生识别罕见儿童遗传病并新增 18 例诊断；sqlite-utils 4.0rc1 引入迁移机制与嵌套事务抽象。这篇文章保留英文原始摘要、完整中文翻译和关键词汇，目的不是重复新闻，而是把当天最有用的信息压缩成一篇适合回看、搜索和收藏的学习材料。</p>
+    </header>
+    <article class="card">
+  <div class="eyebrow">Item 1</div>
+  <h2>三星电子向全球员工部署 ChatGPT Enterprise 与 Codex</h2>
+  <p class="subtitle">Samsung Rolls Out ChatGPT Enterprise and Codex</p>
+  <div class="meta">
+    <span>Source: OpenAI Blog</span>
+    <span>Date: 2026-06-21</span>
+    <span>Score: 9.4/10</span>
+    <span>Highlight: Yes</span>
+  </div>
+  <div class="tags"><span class="tag">enterprise AI</span><span class="tag">Codex</span><span class="tag">workflow adoption</span><span class="tag">organizational tooling</span></div>
+  <h3>English Summary</h3>
+  <p>This item stands out because it is not another pilot announcement or narrow team experiment. The candidate indicates that Samsung Electronics is rolling out ChatGPT Enterprise and Codex to employees worldwide, which signals a large-scale operational commitment to AI-assisted knowledge work and software tasks. For anyone building tools, studying enterprise adoption, or thinking about agent deployment beyond demos, the important point is organizational scope. A company of Samsung’s size does not push a global rollout without expecting measurable gains in productivity, internal support, or development velocity. The mention of Codex is especially relevant because it suggests coding assistance is being treated as part of a broader enterprise workflow stack rather than an isolated developer add-on. The practical takeaway is that the market is moving from experimentation toward embedded, cross-functional deployment of AI systems inside large companies.</p>
+  <h3>中文理解</h3>
+  <p>这条消息的重要性在于，它不是一次试点公告，也不是只覆盖少数团队的实验。候选信息明确指出，三星电子正在向全球员工部署 ChatGPT Enterprise 和 Codex，这意味着一家超大规模企业正在把 AI 辅助知识工作和软件工作纳入正式运营体系。对于正在做工具开发、研究企业采用路径，或关注智能体如何从 demo 进入真实组织流程的人来说，真正关键的不是“又一家企业用了 AI”，而是部署范围和组织级承诺。像三星这样体量的公司，不会在没有明确预期收益的情况下推动全球上线，这通常意味着他们希望在生产效率、内部支持能力或研发速度上得到可衡量的改进。尤其值得注意的是 Codex 被一并纳入，说明代码能力正在被当作更大企业工作流栈的一部分，而不只是孤立的开发者插件。实际启发是，企业 AI 正在从试验阶段走向嵌入式、跨职能部署阶段。</p>
+  <h3>Vocabulary</h3>
+  <ul><li><strong>enterprise rollout</strong>: 企业级部署推广</li><li><strong>operational commitment</strong>: 运营层面的正式投入</li><li><strong>cross-functional deployment</strong>: 跨职能部署</li><li><strong>knowledge work</strong>: 知识型工作</li></ul>
+  <p><a href="https://openai.com/index/samsung-electronics-chatgpt-codex-deployment">Read original source</a></p>
+</article><article class="card">
+  <div class="eyebrow">Item 2</div>
+  <h2>OpenAI 模型协助医生识别罕见儿童遗传病并新增 18 例诊断</h2>
+  <p class="subtitle">AI Helps Diagnose Rare Childhood Genetic Diseases</p>
+  <div class="meta">
+    <span>Source: OpenAI Blog</span>
+    <span>Date: 2026-06-18</span>
+    <span>Score: 9.2/10</span>
+    <span>Highlight: Yes</span>
+  </div>
+  <div class="tags"><span class="tag">rare disease</span><span class="tag">clinical AI</span><span class="tag">diagnosis support</span><span class="tag">medical research</span></div>
+  <h3>English Summary</h3>
+  <p>This candidate has unusually strong real-world value because it connects AI reasoning to a difficult clinical use case rather than a benchmark-only result. The source summary says researchers used an OpenAI reasoning model to support diagnosis of rare diseases in children and identified 18 new diagnoses in cases that had previously remained unsolved. That matters because rare genetic disease work is information-dense, slow, and often constrained by fragmented evidence scattered across symptoms, tests, and literature. A system that helps surface plausible diagnostic directions can shorten search time for clinicians and researchers even if it does not replace expert judgment. For current study and research tooling, the key signal is that useful medical AI is increasingly about assisting synthesis across messy evidence, not merely answering textbook questions. This is the kind of application where practical impact matters more than abstract benchmark gains.</p>
+  <h3>中文理解</h3>
+  <p>这条候选的现实价值很高，因为它把 AI 推理能力放进了一个真正困难的临床场景，而不是只停留在基准测试层面。来源摘要指出，研究人员使用 OpenAI 的推理模型来辅助儿童罕见疾病诊断，并在此前一直未能解决的病例中新增识别出 18 例诊断结果。之所以重要，是因为罕见遗传病诊断本身就是一个信息极度密集、周期漫长、证据分散的问题，医生和研究者往往需要在症状、检查结果和文献线索之间反复比对。如果系统能够帮助更快地提出可信的诊断方向，即使它完全不能替代专家判断，也可能显著缩短排查时间。对当前学习和科研工具工作而言，这条消息释放的信号是：真正有用的医疗 AI，越来越依赖于在杂乱证据中做综合整理与推理，而不只是回答教科书式问题。这类场景的价值，往往比抽象的榜单提升更值得关注。</p>
+  <h3>Vocabulary</h3>
+  <ul><li><strong>rare genetic disease</strong>: 罕见遗传病</li><li><strong>unsolved case</strong>: 未解决病例</li><li><strong>diagnostic direction</strong>: 诊断方向</li><li><strong>fragmented evidence</strong>: 碎片化证据</li></ul>
+  <p><a href="https://openai.com/index/diagnose-rare-childhood-diseases">Read original source</a></p>
+</article><article class="card">
+  <div class="eyebrow">Item 3</div>
+  <h2>sqlite-utils 4.0rc1 引入迁移机制与嵌套事务抽象</h2>
+  <p class="subtitle">sqlite-utils 4.0rc1 Adds Migrations and Nested Transactions</p>
+  <div class="meta">
+    <span>Source: Simon Willison</span>
+    <span>Date: 2026-06-21</span>
+    <span>Score: 8.8/10</span>
+    <span>Highlight: No</span>
+  </div>
+  <div class="tags"><span class="tag">SQLite</span><span class="tag">Python tooling</span><span class="tag">migrations</span><span class="tag">developer workflows</span></div>
+  <h3>English Summary</h3>
+  <p>Among the open-source candidates, this one is the most actionable for day-to-day engineering work. Simon Willison’s release note for `sqlite-utils 4.0rc1` introduces two meaningful capabilities: built-in database migrations and a new `db.atomic()` abstraction for nested transactions built on SQLite savepoints. Those are not cosmetic changes. They move the project closer to being a more complete operational tool for schema evolution and safer write workflows, especially in scripts, local tools, and small data apps that use SQLite as infrastructure. The release candidate also consolidates several earlier breaking changes for version 4, including packaging updates, type-detection defaults, and API behavior changes around tables and views. The main reason to track it now is timing: this is exactly the phase where trying the RC can influence the final stable release. For tool builders, that makes it more valuable than a routine patch release.</p>
+  <h3>中文理解</h3>
+  <p>在今天的开源类候选中，这条对日常工程工作最有可操作性。Simon Willison 发布的 `sqlite-utils 4.0rc1` 不是表面改动，而是加入了两个很关键的能力：内置数据库迁移机制，以及基于 SQLite savepoint 的 `db.atomic()` 嵌套事务抽象。这意味着该项目正在从“方便处理 SQLite 的工具库”进一步走向“可支撑实际运维和演进需求的完整工具”，尤其适合脚本、个人工具以及把 SQLite 当基础设施的小型数据应用。这个 RC 版本同时收拢了 v4 前期多项可能带来兼容性变化的调整，包括打包方式更新、类型检测默认行为，以及表和视图相关 API 语义变化。当前值得关注它，主要因为现在正处在正式稳定版发布前的关键窗口，开发者此时试用并反馈，仍然有机会影响最终版本形态。因此，它比普通补丁发布更值得跟进。</p>
+  <h3>Vocabulary</h3>
+  <ul><li><strong>database migration</strong>: 数据库迁移</li><li><strong>nested transaction</strong>: 嵌套事务</li><li><strong>release candidate</strong>: 候选发布版</li><li><strong>schema evolution</strong>: 模式演进</li></ul>
+  <p><a href="https://simonwillison.net/2026/Jun/21/sqlite-utils-40rc1/#atom-everything">Read original source</a></p>
+</article>
+  </main>
+</body>
+</html>
