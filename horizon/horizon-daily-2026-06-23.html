@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Horizon 每日文章 2026-06-23</title>
+  <meta name="description" content="2026-06-23 的 Horizon 简报整理成一篇单文，重点集中在三条最值得后续追踪的消息：把提示注入理解为“角色混淆”，比把它当作单纯越狱技巧更有解释力；AI 增强诊断已经不只是辅助判断，而是可能影响到心脏移植级别的临床决策；Patch the Planet 试图直接切入开源维护者最稀缺的安全修复瓶颈。这篇文章保留英文原始摘要、完整中文翻译和关键词汇，目的不是重复新闻，而是把当天最有用的信息压缩成一篇适合回看、搜索和收藏的学习材料。">
+  <style>
+    :root {
+      --bg: #f4efe4;
+      --paper: #fffaf0;
+      --ink: #1f1f1a;
+      --muted: #6b655d;
+      --line: #d8cebd;
+      --accent: #8d4b2b;
+      --accent-soft: #efe0d0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Iowan Old Style", "Palatino Linotype", "Times New Roman", serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top, rgba(141,75,43,0.08), transparent 36%),
+        linear-gradient(180deg, #f8f3ea 0%, var(--bg) 100%);
+      line-height: 1.75;
+    }
+    main {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 56px 20px 80px;
+    }
+    header {
+      margin-bottom: 36px;
+      padding: 28px;
+      border: 1px solid var(--line);
+      background: rgba(255,250,240,0.85);
+      backdrop-filter: blur(8px);
+    }
+    h1, h2, h3 {
+      line-height: 1.2;
+      margin: 0 0 12px;
+    }
+    h1 {
+      font-size: clamp(2rem, 4vw, 3.2rem);
+    }
+    h2 {
+      font-size: clamp(1.5rem, 3vw, 2rem);
+    }
+    h3 {
+      font-size: 1.05rem;
+      margin-top: 22px;
+    }
+    .deck, .subtitle, .meta, .eyebrow {
+      color: var(--muted);
+    }
+    .deck {
+      font-size: 1.05rem;
+      margin-top: 14px;
+    }
+    .card {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      padding: 28px;
+      margin-top: 24px;
+      box-shadow: 0 12px 28px rgba(74, 52, 35, 0.06);
+    }
+    .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.78rem;
+      margin-bottom: 10px;
+    }
+    .subtitle {
+      margin-top: -2px;
+      font-style: italic;
+    }
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 16px;
+      font-size: 0.92rem;
+      margin: 16px 0 10px;
+    }
+    .tag {
+      display: inline-block;
+      margin: 0 8px 8px 0;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 0.86rem;
+    }
+    a {
+      color: var(--accent);
+    }
+    ul {
+      padding-left: 20px;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <div class="eyebrow">Horizon Daily Essay</div>
+      <h1>Horizon 每日文章 2026-06-23</h1>
+      <p class="deck">2026-06-23 的 Horizon 简报整理成一篇单文，重点集中在三条最值得后续追踪的消息：把提示注入理解为“角色混淆”，比把它当作单纯越狱技巧更有解释力；AI 增强诊断已经不只是辅助判断，而是可能影响到心脏移植级别的临床决策；Patch the Planet 试图直接切入开源维护者最稀缺的安全修复瓶颈。这篇文章保留英文原始摘要、完整中文翻译和关键词汇，目的不是重复新闻，而是把当天最有用的信息压缩成一篇适合回看、搜索和收藏的学习材料。</p>
+    </header>
+    <article class="card">
+  <div class="eyebrow">Item 1</div>
+  <h2>把提示注入理解为“角色混淆”，比把它当作单纯越狱技巧更有解释力</h2>
+  <p class="subtitle">Prompt Injection Is Better Understood as Role Confusion</p>
+  <div class="meta">
+    <span>Source: Simon Willison</span>
+    <span>Date: 2026-06-22</span>
+    <span>Score: 9.5/10</span>
+    <span>Highlight: Yes</span>
+  </div>
+  <div class="tags"><span class="tag">prompt injection</span><span class="tag">LLM security</span><span class="tag">role boundaries</span><span class="tag">model behavior</span></div>
+  <h3>English Summary</h3>
+  <p>This write-up is worth tracking because it reframes prompt injection as a deeper perception problem rather than a collection of isolated jailbreak tricks. The candidate summary highlights research showing that models often fail to distinguish privileged instructions from untrusted user text, and may rely more on stylistic cues than on the intended security boundary. That is a serious result for anyone building agents, tool-using assistants, or long-context workflows, because many current defenses assume role labels and wrapper formatting are more robust than they really are. The most useful practical signal is that small “destyling” changes can sharply reduce attack success, which suggests models are reacting to surface patterns in ways humans would not expect. The broader implication is uncomfortable but important: until models develop stronger role perception, prompt injection defense will remain brittle, heuristic, and expensive to maintain in production systems.</p>
+  <h3>中文理解</h3>
+  <p>这篇文章值得重点跟进，因为它把提示注入重新解释成一个更深层的“角色感知失败”问题，而不只是一些零散的越狱技巧集合。候选摘要提到，相关研究表明，模型经常无法稳定区分系统提示这类特权指令与用户输入这类不可信文本，甚至会比起真正的安全边界，更依赖文本表面风格来判断“谁在说话”。对于正在构建智能体、工具调用助手或长上下文工作流的人来说，这个结论很关键，因为很多现有防御方法默认角色标签和包裹格式已经足够稳固，而事实可能并非如此。更有操作意义的是，研究发现只要做一些轻微的“去风格化”处理，攻击成功率就会明显下降，这说明模型对表层模式的反应方式和人类直觉并不一致。更大的启发是：在模型真正形成更可靠的角色感知之前，提示注入防御大概率仍会是一场脆弱、启发式且维护成本很高的持久战。</p>
+  <h3>Vocabulary</h3>
+  <ul><li><strong>privileged instruction</strong>: 特权指令</li><li><strong>untrusted input</strong>: 不可信输入</li><li><strong>role perception</strong>: 角色感知</li><li><strong>destyling</strong>: 去风格化改写</li></ul>
+  <p><a href="https://simonwillison.net/2026/Jun/22/prompt-injection-as-role-confusion/#atom-everything">Read original source</a></p>
+</article><article class="card">
+  <div class="eyebrow">Item 2</div>
+  <h2>AI 增强诊断已经不只是辅助判断，而是可能影响到心脏移植级别的临床决策</h2>
+  <p class="subtitle">AI-Enhanced Diagnostics Reached a Transplant-Level Clinical Outcome</p>
+  <div class="meta">
+    <span>Source: Nature Medicine</span>
+    <span>Date: 2026-06-22</span>
+    <span>Score: 9.1/10</span>
+    <span>Highlight: Yes</span>
+  </div>
+  <div class="tags"><span class="tag">clinical AI</span><span class="tag">diagnostics</span><span class="tag">heart transplantation</span><span class="tag">case report</span></div>
+  <h3>English Summary</h3>
+  <p>Even with only the title visible in the candidate feed, this paper stands out because it ties AI-assisted diagnosis to a consequential downstream intervention: heart transplantation. That moves the discussion away from benchmark accuracy and toward the part that matters in medicine, namely whether diagnostic support changes what clinicians do for a real patient. The value of this item is not that AI replaces specialist judgment, but that it may help connect difficult clues, accelerate recognition of an underlying condition, or strengthen confidence in a course of treatment when timing matters. For anyone studying clinical AI, this is the kind of evidence to watch closely because case reports often signal where practical adoption pressure will emerge first. High-stakes medical use becomes more credible when AI contributes to decisions that affect definitive treatment pathways, not just documentation or low-risk triage.</p>
+  <h3>中文理解</h3>
+  <p>即使候选流里只给出了标题，这篇论文仍然非常值得关注，因为它把 AI 辅助诊断与一个后果极其重大的下游干预联系在了一起，也就是心脏移植。这会把讨论重点从“模型在基准上有多准”转向医学里真正重要的问题：诊断支持是否实际改变了临床团队对真实患者的处理方式。这条消息的价值，不在于 AI 取代专科医生判断，而在于它可能帮助医生更快串联复杂线索、更早识别潜在病因，或者在时间敏感的场景下增强对治疗路径的把握。对于关注临床 AI 的研究者和工具开发者来说，这类案例尤其值得跟踪，因为病例报告往往最早揭示真实采用压力会从哪里出现。只有当 AI 开始参与影响最终治疗路径的决策，而不只是改善文书工作或低风险分诊，高风险医疗场景中的可信度才会真正上升。</p>
+  <h3>Vocabulary</h3>
+  <ul><li><strong>downstream intervention</strong>: 下游干预措施</li><li><strong>treatment pathway</strong>: 治疗路径</li><li><strong>case report</strong>: 病例报告</li><li><strong>specialist judgment</strong>: 专科判断</li></ul>
+  <p><a href="https://www.nature.com/articles/s41591-026-04454-y">Read original source</a></p>
+</article><article class="card">
+  <div class="eyebrow">Item 3</div>
+  <h2>Patch the Planet 试图直接切入开源维护者最稀缺的安全修复瓶颈</h2>
+  <p class="subtitle">Patch the Planet Targets the Open Source Security Bottleneck</p>
+  <div class="meta">
+    <span>Source: OpenAI Blog</span>
+    <span>Date: 2026-06-22</span>
+    <span>Score: 8.9/10</span>
+    <span>Highlight: No</span>
+  </div>
+  <div class="tags"><span class="tag">open source</span><span class="tag">vulnerability remediation</span><span class="tag">AI tooling</span><span class="tag">maintainer workflow</span></div>
+  <h3>English Summary</h3>
+  <p>This announcement matters because it focuses on a real operational bottleneck in open source: maintainers do not just need more bug reports, they need help validating and fixing security issues without drowning in noisy submissions. The candidate summary describes Patch the Planet as a Daybreak initiative that helps maintainers find, validate, and repair vulnerabilities with a mix of AI assistance and expert review. That framing is more useful than generic “AI for security” messaging because it acknowledges that remediation quality and trust are the hard parts. For current tool work, the practical question is whether systems like this can reduce the load on small maintainership teams while still producing patches that are understandable, reviewable, and safe to merge. If it works, the benefit is not only faster fixes but a stronger feedback loop between security discovery, patch generation, and responsible release management.</p>
+  <h3>中文理解</h3>
+  <p>这条公告值得关注，是因为它瞄准了开源世界里一个真实存在的运维瓶颈：维护者真正缺的并不是更多漏洞报告，而是有人能帮他们在不被大量噪声淹没的前提下，更快验证并修复安全问题。候选摘要将 Patch the Planet 描述为 Daybreak 计划中的一部分，目标是通过 AI 辅助加上专家审核，帮助开源维护者发现、验证并修补漏洞。这个表述比泛泛的“AI 做安全”更有价值，因为它承认真正困难的不是发现问题本身，而是修复质量、审核可信度以及最终能否安全合并。对当前工具工作而言，关键观察点在于，这类系统能否真正降低小型维护团队的负担，同时仍然产出可理解、可审查、可安全发布的补丁。如果这条路径成立，它带来的不只是修复速度提升，更可能重建安全发现、补丁生成和负责任发布之间的反馈闭环。</p>
+  <h3>Vocabulary</h3>
+  <ul><li><strong>maintainer workflow</strong>: 维护者工作流</li><li><strong>vulnerability remediation</strong>: 漏洞修复</li><li><strong>noisy submission</strong>: 高噪声提交</li><li><strong>responsible release management</strong>: 负责任的发布管理</li></ul>
+  <p><a href="https://openai.com/index/patch-the-planet">Read original source</a></p>
+</article>
+  </main>
+</body>
+</html>
