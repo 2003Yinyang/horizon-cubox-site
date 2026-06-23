@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Horizon 每日文章 2026-06-24</title>
+  <meta name="description" content="2026-06-24 的 Horizon 简报整理成一篇单文，重点集中在三条最值得后续追踪的消息：提示注入暴露的不是单点越狱漏洞，而是模型更深层的角色感知失灵；AI 增强诊断已经进入会影响心脏移植决策的高风险临床场景；GitHub 的内部数据分析智能体展示了一条更务实的企业落地路径。这篇文章保留英文原始摘要、完整中文翻译和关键词汇，目的不是重复新闻，而是把当天最有用的信息压缩成一篇适合回看、搜索和收藏的学习材料。">
+  <style>
+    :root {
+      --bg: #f4efe4;
+      --paper: #fffaf0;
+      --ink: #1f1f1a;
+      --muted: #6b655d;
+      --line: #d8cebd;
+      --accent: #8d4b2b;
+      --accent-soft: #efe0d0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Iowan Old Style", "Palatino Linotype", "Times New Roman", serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top, rgba(141,75,43,0.08), transparent 36%),
+        linear-gradient(180deg, #f8f3ea 0%, var(--bg) 100%);
+      line-height: 1.75;
+    }
+    main {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 56px 20px 80px;
+    }
+    header {
+      margin-bottom: 36px;
+      padding: 28px;
+      border: 1px solid var(--line);
+      background: rgba(255,250,240,0.85);
+      backdrop-filter: blur(8px);
+    }
+    h1, h2, h3 {
+      line-height: 1.2;
+      margin: 0 0 12px;
+    }
+    h1 {
+      font-size: clamp(2rem, 4vw, 3.2rem);
+    }
+    h2 {
+      font-size: clamp(1.5rem, 3vw, 2rem);
+    }
+    h3 {
+      font-size: 1.05rem;
+      margin-top: 22px;
+    }
+    .deck, .subtitle, .meta, .eyebrow {
+      color: var(--muted);
+    }
+    .deck {
+      font-size: 1.05rem;
+      margin-top: 14px;
+    }
+    .card {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      padding: 28px;
+      margin-top: 24px;
+      box-shadow: 0 12px 28px rgba(74, 52, 35, 0.06);
+    }
+    .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.78rem;
+      margin-bottom: 10px;
+    }
+    .subtitle {
+      margin-top: -2px;
+      font-style: italic;
+    }
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 16px;
+      font-size: 0.92rem;
+      margin: 16px 0 10px;
+    }
+    .tag {
+      display: inline-block;
+      margin: 0 8px 8px 0;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 0.86rem;
+    }
+    a {
+      color: var(--accent);
+    }
+    ul {
+      padding-left: 20px;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <div class="eyebrow">Horizon Daily Essay</div>
+      <h1>Horizon 每日文章 2026-06-24</h1>
+      <p class="deck">2026-06-24 的 Horizon 简报整理成一篇单文，重点集中在三条最值得后续追踪的消息：提示注入暴露的不是单点越狱漏洞，而是模型更深层的角色感知失灵；AI 增强诊断已经进入会影响心脏移植决策的高风险临床场景；GitHub 的内部数据分析智能体展示了一条更务实的企业落地路径。这篇文章保留英文原始摘要、完整中文翻译和关键词汇，目的不是重复新闻，而是把当天最有用的信息压缩成一篇适合回看、搜索和收藏的学习材料。</p>
+    </header>
+    <article class="card">
+  <div class="eyebrow">Item 1</div>
+  <h2>提示注入暴露的不是单点越狱漏洞，而是模型更深层的角色感知失灵</h2>
+  <p class="subtitle">Prompt Injection Exposes a Deeper Role-Perception Failure</p>
+  <div class="meta">
+    <span>Source: Simon Willison</span>
+    <span>Date: 2026-06-22</span>
+    <span>Score: 9.6/10</span>
+    <span>Highlight: Yes</span>
+  </div>
+  <div class="tags"><span class="tag">prompt injection</span><span class="tag">LLM security</span><span class="tag">role confusion</span><span class="tag">AI agents</span></div>
+  <h3>English Summary</h3>
+  <p>This item stands out because it shifts the prompt-injection discussion from surface jailbreak patterns to a structural explanation of why current defenses keep failing. The linked write-up summarizes research arguing that language models often infer authority from style and framing cues instead of reliably respecting the intended role boundary between system, user, tool output, and internal reasoning. That matters directly for agent design, tool calling, and long-context workflows, where developers often assume wrappers, tags, and instruction hierarchy provide stronger isolation than they actually do. The most practical takeaway is that slight “destyling” changes can sharply reduce attack success, implying that many attacks exploit brittle pattern recognition rather than robust role understanding. For current AI tooling work, this is high-value because it suggests the real gap is not better prompt wording alone, but models that still cannot consistently tell which text should be trusted, obeyed, or ignored.</p>
+  <h3>中文理解</h3>
+  <p>这条内容特别值得关注，因为它把提示注入的问题，从表层的越狱技巧集合，推进到了一个更结构性的解释框架：为什么现有防御总是不断失效。相关写作总结的核心观点是，语言模型往往不是稳定地遵守 system、user、tool output 和内部推理之间原本设定的角色边界，而是会根据文本风格、措辞方式和形式线索来推断“谁更有权威”。这对智能体设计、工具调用和长上下文工作流都很关键，因为很多开发者默认包裹格式、角色标签和指令层级已经提供了足够强的隔离，但现实可能远没有这么稳固。更有实际意义的是，研究发现只要对攻击文本做轻微的“去风格化”处理，成功率就可能明显下降，这说明很多攻击利用的是模型脆弱的模式识别，而不是它真正理解了角色边界。对当前 AI 工具工作而言，这条信息的价值在于，它提醒我们真正缺的不是更会写提示词，而是模型仍然无法稳定判断哪些文本应该被信任、遵从或忽略。</p>
+  <h3>Vocabulary</h3>
+  <ul><li><strong>role boundary</strong>: 角色边界</li><li><strong>privileged text</strong>: 高权限文本</li><li><strong>destyling</strong>: 去风格化改写</li><li><strong>brittle pattern recognition</strong>: 脆弱的模式识别</li></ul>
+  <p><a href="https://simonwillison.net/2026/Jun/22/prompt-injection-as-role-confusion/#atom-everything">Read original source</a></p>
+</article><article class="card">
+  <div class="eyebrow">Item 2</div>
+  <h2>AI 增强诊断已经进入会影响心脏移植决策的高风险临床场景</h2>
+  <p class="subtitle">AI-Enhanced Diagnosis Reached a Transplant-Level Clinical Decision</p>
+  <div class="meta">
+    <span>Source: Nature Medicine</span>
+    <span>Date: 2026-06-22</span>
+    <span>Score: 9.3/10</span>
+    <span>Highlight: Yes</span>
+  </div>
+  <div class="tags"><span class="tag">clinical AI</span><span class="tag">structural heart disease</span><span class="tag">ECG screening</span><span class="tag">transplantation</span></div>
+  <h3>English Summary</h3>
+  <p>This case report is unusually important because it links AI-assisted diagnosis to a concrete, high-stakes treatment outcome rather than another abstract accuracy claim. According to the article preview, the team deployed an AI-enhanced ECG workflow in emergency departments to detect previously unrecognized structural heart disease, especially in settings where echocardiography is harder to access quickly. The paper then presents a sentinel case in which AI-enabled screening helped surface disease that might otherwise have been missed because the patient’s presentation was atypical. That is the key reason this item matters: it moves clinical AI from passive decision support toward action that can alter downstream management, timing, and eventually definitive therapy, including transplantation. For anyone following medical AI, this is the kind of evidence that deserves close attention, because real adoption will depend less on benchmark scores and more on whether AI changes diagnosis pathways in time-sensitive care.</p>
+  <h3>中文理解</h3>
+  <p>这篇病例报告之所以重要，不在于它再次宣称 AI 诊断“更准确”，而在于它把 AI 辅助诊断与一个真实、后果重大的治疗结果直接联系了起来。根据文章预览，这个团队把 AI 增强 ECG 分析部署到了急诊场景，用来识别此前没有被发现的结构性心脏病，尤其适用于超声心动图无法快速、普遍获取的环境。论文进一步给出一个具有代表性的病例：由于患者表现并不典型，疾病原本可能被漏掉，而 AI 支持的筛查帮助临床团队更早发现了问题。这正是它的价值所在，因为它让临床 AI 从“被动提供参考意见”走向“能够改变后续管理、处理时机，甚至最终治疗路径”的阶段，其中就包括心脏移植这类高风险决策。对关注医疗 AI 的人来说，这类证据比单纯基准分数更值得跟踪，因为真实采用最终取决于 AI 能否在时间敏感的医疗流程里真正改变诊断路径。</p>
+  <h3>Vocabulary</h3>
+  <ul><li><strong>sentinel case</strong>: 标志性病例</li><li><strong>structural heart disease</strong>: 结构性心脏病</li><li><strong>atypical presentation</strong>: 非典型临床表现</li><li><strong>downstream management</strong>: 后续临床处置</li></ul>
+  <p><a href="https://www.nature.com/articles/s41591-026-04454-y">Read original source</a></p>
+</article><article class="card">
+  <div class="eyebrow">Item 3</div>
+  <h2>GitHub 的内部数据分析智能体展示了一条更务实的企业落地路径</h2>
+  <p class="subtitle">GitHub’s Internal Analytics Agent Shows a Practical Enterprise Pattern</p>
+  <div class="meta">
+    <span>Source: GitHub Blog</span>
+    <span>Date: 2026-06-19</span>
+    <span>Score: 8.9/10</span>
+    <span>Highlight: No</span>
+  </div>
+  <div class="tags"><span class="tag">analytics agent</span><span class="tag">enterprise tooling</span><span class="tag">natural language interfaces</span><span class="tag">GitHub Copilot</span></div>
+  <h3>English Summary</h3>
+  <p>This post is worth selecting because it focuses on implementation lessons from an internal analytics agent instead of presenting another broad “AI transformation” narrative. GitHub describes Qubot as a Copilot-powered system that lets employees ask data questions in plain language, which is exactly the sort of constrained but useful workflow many teams are trying to build. The value here is practical: analytics is a domain where trust, access control, answer quality, and iteration speed all matter, so real deployment lessons are more useful than generic architecture diagrams. Even from the candidate summary alone, the signal is clear that the team is reflecting on what worked while turning natural-language querying into something employees can actually use inside the organization. For current programming and tooling work, this kind of case is useful because it points toward enterprise agents that narrow scope, sit close to concrete workflows, and succeed by reducing friction rather than pretending to replace analysts wholesale.</p>
+  <h3>中文理解</h3>
+  <p>这篇文章值得入选，是因为它讨论的是一个内部数据分析智能体的实际构建经验，而不是又一次泛泛而谈的“AI 改造企业”叙事。GitHub 将 Qubot 描述为一个由 Copilot 驱动的系统，允许员工直接用自然语言提出数据问题，这正是很多团队当前正在尝试落地的一类“范围受控但真正有用”的工作流。它的价值在于非常务实：数据分析场景里，信任、权限控制、答案质量和迭代速度都同样重要，因此真实部署过程中的经验教训，往往比通用架构示意图更有参考意义。即使仅从候选摘要出发，也能看出 GitHub 团队关注的重点不是炫耀模型能力，而是在反思怎样把自然语言查询真正变成组织内部可以稳定使用的能力。对当前编程和工具工作来说，这类案例的启发在于，企业级智能体更可能通过缩小问题范围、贴近具体流程、降低使用摩擦而成功，而不是试图一次性取代整个人类分析角色。</p>
+  <h3>Vocabulary</h3>
+  <ul><li><strong>constrained workflow</strong>: 受约束的工作流</li><li><strong>access control</strong>: 访问控制</li><li><strong>plain-language query</strong>: 自然语言查询</li><li><strong>deployment lesson</strong>: 部署经验教训</li></ul>
+  <p><a href="https://github.blog/ai-and-ml/github-copilot/how-we-built-an-internal-data-analytics-agent/">Read original source</a></p>
+</article>
+  </main>
+</body>
+</html>
