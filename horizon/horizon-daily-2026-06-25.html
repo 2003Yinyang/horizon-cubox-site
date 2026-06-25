@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Horizon 每日文章 2026-06-25</title>
+  <meta name="description" content="2026-06-25 的 Horizon 简报整理成一篇单文，重点集中在三条最值得后续追踪的消息：Simon Willison 将 MDN 浏览器兼容数据转成可查询的 SQLite 资产；Talos 自动重分析显示罕见病基因诊断可以规模化推进；GitHub 披露 Qubot 方案，用代理把数据分析变成更自助的工作流。这篇文章保留英文原始摘要、完整中文翻译和关键词汇，目的不是重复新闻，而是把当天最有用的信息压缩成一篇适合回看、搜索和收藏的学习材料。">
+  <style>
+    :root {
+      --bg: #f4efe4;
+      --paper: #fffaf0;
+      --ink: #1f1f1a;
+      --muted: #6b655d;
+      --line: #d8cebd;
+      --accent: #8d4b2b;
+      --accent-soft: #efe0d0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Iowan Old Style", "Palatino Linotype", "Times New Roman", serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top, rgba(141,75,43,0.08), transparent 36%),
+        linear-gradient(180deg, #f8f3ea 0%, var(--bg) 100%);
+      line-height: 1.75;
+    }
+    main {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 56px 20px 80px;
+    }
+    header {
+      margin-bottom: 36px;
+      padding: 28px;
+      border: 1px solid var(--line);
+      background: rgba(255,250,240,0.85);
+      backdrop-filter: blur(8px);
+    }
+    h1, h2, h3 {
+      line-height: 1.2;
+      margin: 0 0 12px;
+    }
+    h1 {
+      font-size: clamp(2rem, 4vw, 3.2rem);
+    }
+    h2 {
+      font-size: clamp(1.5rem, 3vw, 2rem);
+    }
+    h3 {
+      font-size: 1.05rem;
+      margin-top: 22px;
+    }
+    .deck, .subtitle, .meta, .eyebrow {
+      color: var(--muted);
+    }
+    .deck {
+      font-size: 1.05rem;
+      margin-top: 14px;
+    }
+    .card {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      padding: 28px;
+      margin-top: 24px;
+      box-shadow: 0 12px 28px rgba(74, 52, 35, 0.06);
+    }
+    .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.78rem;
+      margin-bottom: 10px;
+    }
+    .subtitle {
+      margin-top: -2px;
+      font-style: italic;
+    }
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 16px;
+      font-size: 0.92rem;
+      margin: 16px 0 10px;
+    }
+    .tag {
+      display: inline-block;
+      margin: 0 8px 8px 0;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 0.86rem;
+    }
+    a {
+      color: var(--accent);
+    }
+    ul {
+      padding-left: 20px;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <div class="eyebrow">Horizon Daily Essay</div>
+      <h1>Horizon 每日文章 2026-06-25</h1>
+      <p class="deck">2026-06-25 的 Horizon 简报整理成一篇单文，重点集中在三条最值得后续追踪的消息：Simon Willison 将 MDN 浏览器兼容数据转成可查询的 SQLite 资产；Talos 自动重分析显示罕见病基因诊断可以规模化推进；GitHub 披露 Qubot 方案，用代理把数据分析变成更自助的工作流。这篇文章保留英文原始摘要、完整中文翻译和关键词汇，目的不是重复新闻，而是把当天最有用的信息压缩成一篇适合回看、搜索和收藏的学习材料。</p>
+    </header>
+    <article class="card">
+  <div class="eyebrow">Item 1</div>
+  <h2>Simon Willison 将 MDN 浏览器兼容数据转成可查询的 SQLite 资产</h2>
+  <p class="subtitle">Browser Compatibility Data as a SQLite Asset</p>
+  <div class="meta">
+    <span>Source: Simon Willison</span>
+    <span>Date: 2026-06-24</span>
+    <span>Score: 9.2/10</span>
+    <span>Highlight: Yes</span>
+  </div>
+  <div class="tags"><span class="tag">AI tools</span><span class="tag">MCP</span><span class="tag">browser compatibility</span><span class="tag">SQLite</span><span class="tag">developer workflow</span></div>
+  <h3>English Summary</h3>
+  <p>Simon Willison highlighted a compact but unusually practical project: converting Mozilla&#x27;s browser compatibility data into a SQLite database that can be downloaded, queried, and reused by tools. The work was prompted by Mozilla&#x27;s new MDN MCP service, but the real value is operational. Instead of leaving compatibility knowledge locked inside nested JSON and custom code paths, the project turns it into a single database file that works with standard SQL tooling. Willison also described how he used an AI-assisted workflow to generate the conversion script and a GitHub Actions pipeline that rebuilds the database and force-pushes it to an orphan branch so the file can be served with open CORS headers. That makes the dataset directly explorable in browser-based tools such as Datasette Lite. For people building coding agents, docs search, or front-end automation, this is a strong example of packaging reference data into a format agents can actually query.</p>
+  <h3>中文理解</h3>
+  <p>Simon Willison 介绍了一个体量不大但非常实用的项目：把 Mozilla 的浏览器兼容性数据整理成一个可下载、可查询、可复用的 SQLite 数据库。这个想法起因于 Mozilla 新推出的 MDN MCP 服务，但真正有价值的地方在于它的工程化落地。原本这些兼容性知识分散在层层嵌套的 JSON 和专用处理逻辑中，现在被压缩成一个可以直接用标准 SQL 工具访问的单一数据库文件。Willison 还说明了自己如何借助 AI 辅助编程生成转换脚本，并让 GitHub Actions 自动重建数据库，再强制推送到一个孤儿分支，从而利用 GitHub 普通仓库文件自带的开放 CORS 头。这样一来，这份数据就能直接在 Datasette Lite 这类浏览器端工具中探索。对于在做编码代理、文档检索或前端自动化的人来说，这个案例很好地展示了怎样把参考数据封装成代理真正能查询的形态。</p>
+  <h3>Vocabulary</h3>
+  <ul><li><strong>asset</strong>: 可复用资产</li><li><strong>comprehensive</strong>: 全面的</li><li><strong>orphan branch</strong>: 孤儿分支</li><li><strong>CORS headers</strong>: 跨域资源共享响应头</li></ul>
+  <p><a href="https://simonwillison.net/2026/Jun/24/browser-compat-db/#atom-everything">Read original source</a></p>
+</article><article class="card">
+  <div class="eyebrow">Item 2</div>
+  <h2>Talos 自动重分析显示罕见病基因诊断可以规模化推进</h2>
+  <p class="subtitle">Automated Reanalysis Scales Rare-Disease Genomics</p>
+  <div class="meta">
+    <span>Source: Nature Medicine</span>
+    <span>Date: 2026-06-24</span>
+    <span>Score: 9.5/10</span>
+    <span>Highlight: Yes</span>
+  </div>
+  <div class="tags"><span class="tag">medical research</span><span class="tag">genomics</span><span class="tag">rare disease</span><span class="tag">diagnostics</span><span class="tag">automation</span></div>
+  <h3>English Summary</h3>
+  <p>Nature Medicine published an open-access study on Talos, an open-source system for automated reanalysis of rare-disease genomic data. The paper addresses a real bottleneck in clinical genomics: many patients remain undiagnosed after the first sequencing pass, even though new gene-disease links and variant interpretations appear continuously. Talos was designed to rerun that evidence in a systematic, high-specificity workflow instead of relying on slow manual review. In validation data from 1,089 individuals, trio-based analysis recovered 90% of known diagnoses while returning only 1.3 variants per case on average. In an unselected cohort of 4,735 undiagnosed individuals, iterative reanalysis identified 241 diagnoses, a 5.1% yield. The paper further breaks those diagnoses down into gains from newly discovered gene-disease relationships, new variant-level evidence, and better analysis strategies. For clinical research and translational informatics, the message is clear: monthly, automated reanalysis is becoming operationally realistic rather than aspirational.</p>
+  <h3>中文理解</h3>
+  <p>《Nature Medicine》发表了一篇开放获取研究，介绍用于罕见病基因组数据自动重分析的开源系统 Talos。文章针对的是临床基因组学中的一个真实瓶颈：很多患者在首次测序分析后仍然无法确诊，而新的基因与疾病关系、变异解释证据却在持续增加。如果仍主要依赖人工复核，这种增量知识很难稳定地回流到诊断流程中。Talos 的设计目标就是用高特异性的系统化流程，周期性重跑这些新证据，而不是靠缓慢的手工再筛查。在 1,089 名个体的验证数据中，基于三联体的分析找回了 90% 的已知诊断结果，平均每例只返回 1.3 个候选变异；在 4,735 名此前未确诊的个体中，迭代重分析新增 241 例诊断，诊断增益为 5.1%。论文还把新增诊断来源细分为新基因疾病关系、新的变异级证据，以及改进的分析策略。对临床研究和转化信息学而言，这说明按月自动重分析已经开始从理想状态走向可执行流程。</p>
+  <h3>Vocabulary</h3>
+  <ul><li><strong>reanalysis</strong>: 重分析</li><li><strong>diagnostic yield</strong>: 诊断产出率</li><li><strong>variant prioritization</strong>: 变异优先级筛选</li><li><strong>translational informatics</strong>: 转化信息学</li></ul>
+  <p><a href="https://www.nature.com/articles/s41591-026-04477-5">Read original source</a></p>
+</article><article class="card">
+  <div class="eyebrow">Item 3</div>
+  <h2>GitHub 披露 Qubot 方案，用代理把数据分析变成更自助的工作流</h2>
+  <p class="subtitle">GitHub&#x27;s Qubot Makes Analytics More Self-Serve</p>
+  <div class="meta">
+    <span>Source: GitHub Blog</span>
+    <span>Date: 2026-06-19</span>
+    <span>Score: 8.9/10</span>
+    <span>Highlight: No</span>
+  </div>
+  <div class="tags"><span class="tag">programming</span><span class="tag">analytics engineering</span><span class="tag">AI agents</span><span class="tag">GitHub Copilot</span><span class="tag">MCP</span></div>
+  <h3>English Summary</h3>
+  <p>GitHub described how its internal analytics agent, Qubot, gives employees a plain-language way to query warehouse data without turning every question into an analyst ticket. The write-up is useful because it focuses less on demo polish and more on system design. Qubot separates the problem into a user interface layer, a context layer, and a query engine. It is available through Slack, VS Code, and the Copilot CLI, and it stores results as markdown reports in pull requests so questions can be refined collaboratively. The most important engineering lesson is that curated context matters more than model cleverness. GitHub organizes context differently for raw telemetry, conformed models, and gold datasets, then enriches it through ETL pipelines and validates changes with an offline evaluation framework measuring accuracy, latency, and regressions. The team reports that better context made the agent about three times faster at finding the right answer, which is a concrete insight for anyone building internal data agents.</p>
+  <h3>中文理解</h3>
+  <p>GitHub 介绍了其内部数据分析代理 Qubot，目标是让员工能够用自然语言直接查询数据仓库，而不是把每个问题都变成分析师工单。这篇文章的价值在于，它强调的不是演示效果，而是系统设计本身。Qubot 把问题拆成用户界面层、上下文层和查询引擎三部分：入口可以是 Slack、VS Code 或 Copilot CLI，查询结果会以 Markdown 报告形式保存到拉取请求中，方便团队在线程中继续细化问题、复查结果并沉淀分析过程。更关键的经验是，精心整理的上下文往往比“模型更聪明”更重要。GitHub 分别为原始遥测数据、标准化事实与维度模型、以及面向业务的 gold 数据集维护不同类型的上下文，再通过 ETL 管道补充派生元数据，并用离线评估框架持续检查准确率、延迟和回归。团队报告称，更好的上下文让代理找到正确答案的速度提升到约三倍，这对构建企业内部数据代理的人非常有参考价值。</p>
+  <h3>Vocabulary</h3>
+  <ul><li><strong>self-serve</strong>: 自助式</li><li><strong>curated context</strong>: 精心整理的上下文</li><li><strong>conformed model</strong>: 标准化模型</li><li><strong>regression</strong>: 回归问题</li></ul>
+  <p><a href="https://github.blog/ai-and-ml/github-copilot/how-we-built-an-internal-data-analytics-agent/">Read original source</a></p>
+</article>
+  </main>
+</body>
+</html>
