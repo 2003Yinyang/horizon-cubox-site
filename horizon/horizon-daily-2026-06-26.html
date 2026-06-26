@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Horizon 每日文章 2026-06-26</title>
+  <meta name="description" content="2026-06-26 的 Horizon 简报整理成一篇单文，重点集中在三条最值得后续追踪的消息：智能体如何正在改变工作方式；HPV 疫苗接种与宫颈癌死亡显著下降相关；GitHub 评估 Copilot 智能体框架在多模型多任务中的性能与效率。这篇文章保留英文原始摘要、完整中文翻译和关键词汇，目的不是重复新闻，而是把当天最有用的信息压缩成一篇适合回看、搜索和收藏的学习材料。">
+  <style>
+    :root {
+      --bg: #f4efe4;
+      --paper: #fffaf0;
+      --ink: #1f1f1a;
+      --muted: #6b655d;
+      --line: #d8cebd;
+      --accent: #8d4b2b;
+      --accent-soft: #efe0d0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Iowan Old Style", "Palatino Linotype", "Times New Roman", serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top, rgba(141,75,43,0.08), transparent 36%),
+        linear-gradient(180deg, #f8f3ea 0%, var(--bg) 100%);
+      line-height: 1.75;
+    }
+    main {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 56px 20px 80px;
+    }
+    header {
+      margin-bottom: 36px;
+      padding: 28px;
+      border: 1px solid var(--line);
+      background: rgba(255,250,240,0.85);
+      backdrop-filter: blur(8px);
+    }
+    h1, h2, h3 {
+      line-height: 1.2;
+      margin: 0 0 12px;
+    }
+    h1 {
+      font-size: clamp(2rem, 4vw, 3.2rem);
+    }
+    h2 {
+      font-size: clamp(1.5rem, 3vw, 2rem);
+    }
+    h3 {
+      font-size: 1.05rem;
+      margin-top: 22px;
+    }
+    .deck, .subtitle, .meta, .eyebrow {
+      color: var(--muted);
+    }
+    .deck {
+      font-size: 1.05rem;
+      margin-top: 14px;
+    }
+    .card {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      padding: 28px;
+      margin-top: 24px;
+      box-shadow: 0 12px 28px rgba(74, 52, 35, 0.06);
+    }
+    .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.78rem;
+      margin-bottom: 10px;
+    }
+    .subtitle {
+      margin-top: -2px;
+      font-style: italic;
+    }
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 16px;
+      font-size: 0.92rem;
+      margin: 16px 0 10px;
+    }
+    .tag {
+      display: inline-block;
+      margin: 0 8px 8px 0;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 0.86rem;
+    }
+    a {
+      color: var(--accent);
+    }
+    ul {
+      padding-left: 20px;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <div class="eyebrow">Horizon Daily Essay</div>
+      <h1>Horizon 每日文章 2026-06-26</h1>
+      <p class="deck">2026-06-26 的 Horizon 简报整理成一篇单文，重点集中在三条最值得后续追踪的消息：智能体如何正在改变工作方式；HPV 疫苗接种与宫颈癌死亡显著下降相关；GitHub 评估 Copilot 智能体框架在多模型多任务中的性能与效率。这篇文章保留英文原始摘要、完整中文翻译和关键词汇，目的不是重复新闻，而是把当天最有用的信息压缩成一篇适合回看、搜索和收藏的学习材料。</p>
+    </header>
+    <article class="card">
+  <div class="eyebrow">Item 1</div>
+  <h2>智能体如何正在改变工作方式</h2>
+  <p class="subtitle">How Agents Are Transforming Work</p>
+  <div class="meta">
+    <span>Source: OpenAI Blog</span>
+    <span>Date: 2026-06-25</span>
+    <span>Score: 9.2/10</span>
+    <span>Highlight: Yes</span>
+  </div>
+  <div class="tags"><span class="tag">AI agents</span><span class="tag">productivity</span><span class="tag">workflow design</span><span class="tag">knowledge work</span></div>
+  <h3>English Summary</h3>
+  <p>OpenAI reports on a new research paper examining how AI agents are changing practical work. The core claim is not simply that models answer questions faster, but that agent-style systems can take on longer, more interdependent tasks that previously required repeated human handoffs. That matters for researchers, builders, and operators because it shifts evaluation from single prompts toward multi-step execution, persistence, and tool use. The post also frames agent adoption as a workplace change problem: teams need to redesign tasks, checkpoints, and trust boundaries instead of dropping a chatbot into an existing workflow. For people building their own local or semi-automated systems, the useful takeaway is that value increasingly comes from orchestration quality, task decomposition, and monitoring, not just raw model intelligence. In short, the article treats agents as an operational layer that can expand throughput when paired with structured process design.</p>
+  <h3>中文理解</h3>
+  <p>OpenAI 介绍了一篇新的研究论文，讨论 AI 智能体如何改变实际工作方式。核心观点并不是模型只是把问答变快了，而是智能体式系统已经能够承担更长链条、相互依赖更强、过去需要人多次接力的任务。这一点对研究者、开发者和运营人员都很重要，因为评估重点会从单轮提示词表现，转向多步骤执行能力、持续性以及工具调用能力。文章还把智能体落地视为一个“工作流程重构”问题：团队不能只是把聊天机器人塞进原有流程，而需要重新设计任务边界、检查点和信任控制。对于自己搭建本地或半自动化系统的人来说，真正的价值越来越来自编排质量、任务拆解和监控机制，而不只是模型本身有多聪明。简而言之，这篇文章把智能体视为一层新的运营能力，只有和结构化流程设计结合时，才能真正扩大产出。</p>
+  <h3>Vocabulary</h3>
+  <ul><li><strong>interdependent</strong>: 相互依赖的</li><li><strong>orchestration</strong>: 编排，协同调度</li><li><strong>checkpoint</strong>: 检查点，关键核验节点</li><li><strong>throughput</strong>: 吞吐量，整体产出效率</li></ul>
+  <p><a href="https://openai.com/index/how-agents-are-transforming-work">Read original source</a></p>
+</article><article class="card">
+  <div class="eyebrow">Item 2</div>
+  <h2>HPV 疫苗接种与宫颈癌死亡显著下降相关</h2>
+  <p class="subtitle">HPV Vaccination Linked to Dramatic Reduction in Cervical Cancer Deaths</p>
+  <div class="meta">
+    <span>Source: Nature Medicine</span>
+    <span>Date: 2026-06-25</span>
+    <span>Score: 9.0/10</span>
+    <span>Highlight: Yes</span>
+  </div>
+  <div class="tags"><span class="tag">HPV</span><span class="tag">cervical cancer</span><span class="tag">public health</span><span class="tag">preventive medicine</span></div>
+  <h3>English Summary</h3>
+  <p>Nature Medicine highlights evidence linking HPV vaccination with a dramatic reduction in cervical cancer deaths, making this an unusually consequential public-health signal in the current news set. Even from the title alone, the practical implication is strong: a preventive intervention aimed at infection control is now being associated not just with reduced precancerous disease, but with lower mortality. That changes how clinicians, health-policy planners, and medical educators may frame vaccine impact. The item is also valuable for research work because it reinforces the importance of long-horizon follow-up in prevention studies; many vaccine debates focus on intermediate endpoints, while death reduction is the outcome that most directly matters to patients and systems. For anyone working in clinical evidence appraisal, the article is a reminder that well-implemented population prevention programs can produce results large enough to reshape screening, counseling, and resource-allocation discussions.</p>
+  <h3>中文理解</h3>
+  <p>《Nature Medicine》重点报道了这样一个证据链：HPV 疫苗接种与宫颈癌死亡大幅下降相关联。这是当前候选集中公共卫生意义非常强的一条信息。即使仅从标题所传达的结论来看，其实际含义也已经非常明确：一种以感染预防为目标的干预措施，如今不仅与癌前病变减少有关，而且进一步与死亡率下降相关。这会改变临床医生、卫生政策制定者以及医学教育者对疫苗价值的表述方式。对科研工作而言，这条消息也再次强调了预防研究中长期随访的重要性，因为很多疫苗讨论只停留在中间终点，而死亡率下降才是对患者和卫生系统最关键的结局指标。对于从事临床证据评价的人来说，这篇报道提醒我们，执行良好的人群预防项目完全可能产生足以重塑筛查、宣教和资源配置讨论的效果。</p>
+  <h3>Vocabulary</h3>
+  <ul><li><strong>mortality</strong>: 死亡率</li><li><strong>preventive intervention</strong>: 预防性干预</li><li><strong>precancerous disease</strong>: 癌前病变</li><li><strong>resource allocation</strong>: 资源配置</li></ul>
+  <p><a href="https://www.nature.com/articles/d41591-026-00033-3">Read original source</a></p>
+</article><article class="card">
+  <div class="eyebrow">Item 3</div>
+  <h2>GitHub 评估 Copilot 智能体框架在多模型多任务中的性能与效率</h2>
+  <p class="subtitle">Evaluating Performance and Efficiency of the GitHub Copilot Agentic Harness Across Models and Tasks</p>
+  <div class="meta">
+    <span>Source: GitHub Blog</span>
+    <span>Date: 2026-06-25</span>
+    <span>Score: 8.8/10</span>
+    <span>Highlight: Yes</span>
+  </div>
+  <div class="tags"><span class="tag">GitHub Copilot</span><span class="tag">evaluation</span><span class="tag">coding agents</span><span class="tag">benchmark</span></div>
+  <h3>English Summary</h3>
+  <p>GitHub describes how its Copilot agentic harness performs across multiple benchmarks and emphasizes token efficiency alongside task success. That framing is useful because coding-agent evaluation often overweights pass rates while underweighting operational cost, latency, and model portability. According to the post summary, the harness delivers strong results across tasks while preserving the option to choose from more than twenty models, suggesting that the surrounding execution system matters as much as the model itself. For engineers building internal agent workflows, this is a practical signal: benchmark design should measure not only whether an agent solves a problem, but how reliably and economically it does so under varied workloads. The post therefore supports a broader industry shift from single-model hero narratives toward harness-level optimization, where tool invocation, retry policy, context management, and model routing together determine real-world developer value.</p>
+  <h3>中文理解</h3>
+  <p>GitHub 介绍了其 Copilot 智能体执行框架在多个基准测试中的表现，并特别强调了“任务成功率”之外的 token 效率。这种表述方式很有价值，因为当前很多编码智能体评估过度关注是否通过测试，却低估了运行成本、延迟以及跨模型迁移能力。按照文章摘要，这套框架在多类任务上取得了较强结果，同时仍然保留从二十多个模型中进行选择的灵活性，这说明真正关键的不只是模型本身，外围执行系统同样重要。对于正在搭建内部智能体流程的工程团队来说，这是一条很实用的信号：评估基准不应只问“能不能做成”，还应衡量“是否稳定、是否经济、是否能在不同负载下保持表现”。因此，这篇文章支持一个更广泛的行业转向，即从单模型英雄叙事，转向对执行框架层面的优化，把工具调用、重试策略、上下文管理和模型路由一起纳入真实生产价值的判断。</p>
+  <h3>Vocabulary</h3>
+  <ul><li><strong>harness</strong>: 执行框架，评测框架</li><li><strong>portability</strong>: 可迁移性</li><li><strong>latency</strong>: 延迟</li><li><strong>routing</strong>: 路由，调度分发</li></ul>
+  <p><a href="https://github.blog/ai-and-ml/github-copilot/evaluating-performance-and-efficiency-of-the-github-copilot-agentic-harness-across-models-and-tasks/">Read original source</a></p>
+</article>
+  </main>
+</body>
+</html>
