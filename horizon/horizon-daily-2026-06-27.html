@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Horizon 每日文章 2026-06-27</title>
+  <meta name="description" content="2026-06-27 的 Horizon 简报整理成一篇单文，重点集中在三条最值得后续追踪的消息：Hugging Face 用一条命令把私有 vLLM 推理服务变成可即时启停的实验基础设施；Nature Medicine 指出健康 AI 基准高分并不等于模型已经足够稳健可临床使用；GitHub 用跨模型基准评测强调代理式编码能力不只取决于模型本身。这篇文章保留英文原始摘要、完整中文翻译和关键词汇，目的不是重复新闻，而是把当天最有用的信息压缩成一篇适合回看、搜索和收藏的学习材料。">
+  <style>
+    :root {
+      --bg: #f4efe4;
+      --paper: #fffaf0;
+      --ink: #1f1f1a;
+      --muted: #6b655d;
+      --line: #d8cebd;
+      --accent: #8d4b2b;
+      --accent-soft: #efe0d0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Iowan Old Style", "Palatino Linotype", "Times New Roman", serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top, rgba(141,75,43,0.08), transparent 36%),
+        linear-gradient(180deg, #f8f3ea 0%, var(--bg) 100%);
+      line-height: 1.75;
+    }
+    main {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 56px 20px 80px;
+    }
+    header {
+      margin-bottom: 36px;
+      padding: 28px;
+      border: 1px solid var(--line);
+      background: rgba(255,250,240,0.85);
+      backdrop-filter: blur(8px);
+    }
+    h1, h2, h3 {
+      line-height: 1.2;
+      margin: 0 0 12px;
+    }
+    h1 {
+      font-size: clamp(2rem, 4vw, 3.2rem);
+    }
+    h2 {
+      font-size: clamp(1.5rem, 3vw, 2rem);
+    }
+    h3 {
+      font-size: 1.05rem;
+      margin-top: 22px;
+    }
+    .deck, .subtitle, .meta, .eyebrow {
+      color: var(--muted);
+    }
+    .deck {
+      font-size: 1.05rem;
+      margin-top: 14px;
+    }
+    .card {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      padding: 28px;
+      margin-top: 24px;
+      box-shadow: 0 12px 28px rgba(74, 52, 35, 0.06);
+    }
+    .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.78rem;
+      margin-bottom: 10px;
+    }
+    .subtitle {
+      margin-top: -2px;
+      font-style: italic;
+    }
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 16px;
+      font-size: 0.92rem;
+      margin: 16px 0 10px;
+    }
+    .tag {
+      display: inline-block;
+      margin: 0 8px 8px 0;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 0.86rem;
+    }
+    a {
+      color: var(--accent);
+    }
+    ul {
+      padding-left: 20px;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <div class="eyebrow">Horizon Daily Essay</div>
+      <h1>Horizon 每日文章 2026-06-27</h1>
+      <p class="deck">2026-06-27 的 Horizon 简报整理成一篇单文，重点集中在三条最值得后续追踪的消息：Hugging Face 用一条命令把私有 vLLM 推理服务变成可即时启停的实验基础设施；Nature Medicine 指出健康 AI 基准高分并不等于模型已经足够稳健可临床使用；GitHub 用跨模型基准评测强调代理式编码能力不只取决于模型本身。这篇文章保留英文原始摘要、完整中文翻译和关键词汇，目的不是重复新闻，而是把当天最有用的信息压缩成一篇适合回看、搜索和收藏的学习材料。</p>
+    </header>
+    <article class="card">
+  <div class="eyebrow">Item 1</div>
+  <h2>Hugging Face 用一条命令把私有 vLLM 推理服务变成可即时启停的实验基础设施</h2>
+  <p class="subtitle">One-Command vLLM Serving on HF Jobs</p>
+  <div class="meta">
+    <span>Source: Hugging Face Blog</span>
+    <span>Date: 2026-06-26</span>
+    <span>Score: 9.3/10</span>
+    <span>Highlight: Yes</span>
+  </div>
+  <div class="tags"><span class="tag">AI tools</span><span class="tag">vLLM</span><span class="tag">Hugging Face</span><span class="tag">model serving</span><span class="tag">infrastructure</span></div>
+  <h3>English Summary</h3>
+  <p>Hugging Face&#x27;s new guide shows a very practical deployment path for people who need a temporary but real LLM endpoint without building a full serving stack. The workflow uses `hf jobs run` to launch the official OpenAI-compatible `vllm/vllm-openai` container, expose port 8000 through Hugging Face&#x27;s jobs proxy, and return a reachable URL that can be queried from a laptop, notebook, or another application. The article frames HF Jobs as the fastest route for tests, evaluations, batch generation, or short-lived agent backends because there are no servers to provision and billing follows hardware usage over time rather than a permanently running service. It also draws a useful boundary: HF Jobs is positioned for flexible experiments, while Inference Endpoints remains the managed option for production. For researchers and tool builders, the broader significance is operational speed. Standing up a private model interface quickly changes how easily one can validate ideas, compare prompts, and prototype agent workflows.</p>
+  <h3>中文理解</h3>
+  <p>Hugging Face 这篇新文章展示了一条非常实用的部署路径：如果你需要一个临时但真实可用的 LLM 接口，而又不想自己搭完整的服务栈，可以直接用 HF Jobs 快速拉起。它的做法是通过 `hf jobs run` 启动官方的、兼容 OpenAI API 的 `vllm/vllm-openai` 容器，再把 8000 端口通过 Hugging Face 的 jobs 代理暴露出去，最终返回一个外部可访问的 URL，供笔记本、本地电脑或其他应用直接调用。文章强调，这种方式特别适合测试、评估、批量生成，或给短生命周期的 agent 提供后端，因为无需先配服务器，也不需要维护长期常驻实例，费用按硬件使用时长计算。它同时划清了边界：HF Jobs 更偏灵活实验，而 Inference Endpoints 仍然是面向生产环境的托管方案。对研究者和工具开发者来说，真正重要的是这种操作速度，它显著降低了验证想法、比较提示词以及原型化 agent 工作流的门槛。</p>
+  <h3>Vocabulary</h3>
+  <ul><li><strong>provision</strong>: 预配，提前配置资源</li><li><strong>short-lived</strong>: 短生命周期的</li><li><strong>managed option</strong>: 托管式方案</li><li><strong>operational speed</strong>: 运营或工程执行速度</li></ul>
+  <p><a href="https://huggingface.co/blog/vllm-jobs">Read original source</a></p>
+</article><article class="card">
+  <div class="eyebrow">Item 2</div>
+  <h2>Nature Medicine 指出健康 AI 基准高分并不等于模型已经足够稳健可临床使用</h2>
+  <p class="subtitle">Stress-Testing Frontier Models for Health AI</p>
+  <div class="meta">
+    <span>Source: Nature Medicine</span>
+    <span>Date: 2026-06-26</span>
+    <span>Score: 9.5/10</span>
+    <span>Highlight: Yes</span>
+  </div>
+  <div class="tags"><span class="tag">medical research</span><span class="tag">health AI</span><span class="tag">robustness</span><span class="tag">benchmarking</span><span class="tag">multimodal reasoning</span></div>
+  <h3>English Summary</h3>
+  <p>This Nature Medicine paper is valuable because it shifts attention from headline benchmark wins to the harder question of clinical readiness. The authors examine leading frontier models, including GPT-5- and Gemini-class systems, and apply adversarial stress tests rather than accepting strong average benchmark scores at face value. Their central argument is that current health AI evaluation can be misleading: some models still answer correctly when key inputs are removed, yet become unstable after small prompt changes and can produce reasoning traces that sound convincing while remaining flawed. The study also reports that popular health benchmarks differ substantially in what they actually measure, especially for multimodal medical reasoning. That matters for anyone following medical AI because benchmark performance is often cited as if it were direct evidence of deployability. This paper pushes the field toward a stricter standard: not just accuracy on curated tasks, but robustness, clinically meaningful behavior, and evidence that survives perturbation before stronger claims are made about readiness.</p>
+  <h3>中文理解</h3>
+  <p>这篇发表于《Nature Medicine》的论文之所以重要，是因为它把关注点从“模型在基准上拿了多高分”转向了更关键的问题：这些系统是否真的接近临床可用。作者研究了包括 GPT-5 和 Gemini 这一类前沿大模型，并没有直接把漂亮的平均分数当成结论，而是加入了对抗性压力测试。核心观点是，当前很多健康 AI 评估方式可能会误导判断：有些模型即使缺少关键输入仍然能“猜对”答案，但在提示语稍作改动后却会明显失稳，还可能生成听起来很有说服力、实际却存在缺陷的推理过程。论文还指出，流行的健康领域基准在“到底测到了什么”这件事上差异很大，尤其是在多模态医学推理方面。对于关注医学 AI 的人来说，这一点非常关键，因为基准成绩常被直接当成可部署性的证据。这篇工作推动行业采用更严格的标准：不仅看准确率，还要看稳健性、临床相关性，以及模型在扰动下是否仍然可靠。</p>
+  <h3>Vocabulary</h3>
+  <ul><li><strong>adversarial stress test</strong>: 对抗性压力测试</li><li><strong>clinical readiness</strong>: 临床就绪度</li><li><strong>perturbation</strong>: 扰动，微小变化</li><li><strong>deployability</strong>: 可部署性</li></ul>
+  <p><a href="https://www.nature.com/articles/s41591-026-04501-8">Read original source</a></p>
+</article><article class="card">
+  <div class="eyebrow">Item 3</div>
+  <h2>GitHub 用跨模型基准评测强调代理式编码能力不只取决于模型本身</h2>
+  <p class="subtitle">Benchmarking the Copilot Agentic Harness</p>
+  <div class="meta">
+    <span>Source: GitHub Blog</span>
+    <span>Date: 2026-06-25</span>
+    <span>Score: 8.9/10</span>
+    <span>Highlight: No</span>
+  </div>
+  <div class="tags"><span class="tag">programming</span><span class="tag">GitHub Copilot</span><span class="tag">agentic coding</span><span class="tag">benchmarking</span><span class="tag">token efficiency</span></div>
+  <h3>English Summary</h3>
+  <p>GitHub&#x27;s post is useful because it treats agentic coding performance as a systems problem instead of a pure model leaderboard contest. The company describes how the Copilot agentic harness was evaluated across multiple task benchmarks and model choices, with attention not only to task completion but also to efficiency signals such as token use. The implied message is that orchestration quality, tool access, task framing, and evaluation discipline shape outcomes just as much as raw frontier-model capability. That is strategically important for developers because many teams are now choosing between model providers while also building their own coding workflows around them. A harness that performs well across tasks and remains token-efficient can lower operating cost while preserving flexibility in model selection. For practical engineering work, the post is less about one benchmark result and more about a reusable mindset: compare models inside a stable agent workflow, measure cost and usefulness together, and avoid treating model choice as the only lever.</p>
+  <h3>中文理解</h3>
+  <p>GitHub 这篇文章的价值在于，它把代理式编码能力看成一个系统工程问题，而不是单纯拼模型排行榜。文章介绍了 GitHub Copilot 的 agentic harness 如何在多种任务基准和不同模型选择下进行评测，关注点不仅是任务是否完成，也包括 token 使用这类效率指标。它传达出的关键信息是：编排质量、工具调用能力、任务框定方式，以及评测纪律，都会像底层模型能力一样深刻地影响最终结果。对开发者来说，这一点尤其重要，因为现在很多团队既在比较不同模型供应商，也在围绕这些模型搭建自己的编码工作流。如果一个 harness 能在不同任务上保持较强表现，同时又具备较好的 token 效率，那么它就能在保留模型选择灵活性的同时压低运行成本。对实际工程而言，这篇文章更像是在提供一种可复用的方法论：把模型放进稳定的 agent 工作流中比较，同时一起衡量成本与实用性，而不是把“换模型”当成唯一杠杆。</p>
+  <h3>Vocabulary</h3>
+  <ul><li><strong>harness</strong>: 测试或运行框架</li><li><strong>orchestration</strong>: 编排，调度组织</li><li><strong>task framing</strong>: 任务框定方式</li><li><strong>lever</strong>: 杠杆，关键调节手段</li></ul>
+  <p><a href="https://github.blog/ai-and-ml/github-copilot/evaluating-performance-and-efficiency-of-the-github-copilot-agentic-harness-across-models-and-tasks/">Read original source</a></p>
+</article>
+  </main>
+</body>
+</html>
