@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Horizon 每日文章 2026-06-28</title>
+  <meta name="description" content="2026-06-28 的 Horizon 简报整理成一篇单文，重点集中在三条最值得后续追踪的消息：OpenAI 预览 GPT-5.6 系列，强调更强代理能力与更重的安全加固同时推进；Nature Medicine 指出前沿大模型在健康 AI 中仍存在明显脆弱性，基准高分不等于可用；Hugging Face 用一条命令把私有 vLLM 接口变成可随开随停的实验基础设施。这篇文章保留英文原始摘要、完整中文翻译和关键词汇，目的不是重复新闻，而是把当天最有用的信息压缩成一篇适合回看、搜索和收藏的学习材料。">
+  <style>
+    :root {
+      --bg: #f4efe4;
+      --paper: #fffaf0;
+      --ink: #1f1f1a;
+      --muted: #6b655d;
+      --line: #d8cebd;
+      --accent: #8d4b2b;
+      --accent-soft: #efe0d0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Iowan Old Style", "Palatino Linotype", "Times New Roman", serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top, rgba(141,75,43,0.08), transparent 36%),
+        linear-gradient(180deg, #f8f3ea 0%, var(--bg) 100%);
+      line-height: 1.75;
+    }
+    main {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 56px 20px 80px;
+    }
+    header {
+      margin-bottom: 36px;
+      padding: 28px;
+      border: 1px solid var(--line);
+      background: rgba(255,250,240,0.85);
+      backdrop-filter: blur(8px);
+    }
+    h1, h2, h3 {
+      line-height: 1.2;
+      margin: 0 0 12px;
+    }
+    h1 {
+      font-size: clamp(2rem, 4vw, 3.2rem);
+    }
+    h2 {
+      font-size: clamp(1.5rem, 3vw, 2rem);
+    }
+    h3 {
+      font-size: 1.05rem;
+      margin-top: 22px;
+    }
+    .deck, .subtitle, .meta, .eyebrow {
+      color: var(--muted);
+    }
+    .deck {
+      font-size: 1.05rem;
+      margin-top: 14px;
+    }
+    .card {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      padding: 28px;
+      margin-top: 24px;
+      box-shadow: 0 12px 28px rgba(74, 52, 35, 0.06);
+    }
+    .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.78rem;
+      margin-bottom: 10px;
+    }
+    .subtitle {
+      margin-top: -2px;
+      font-style: italic;
+    }
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 16px;
+      font-size: 0.92rem;
+      margin: 16px 0 10px;
+    }
+    .tag {
+      display: inline-block;
+      margin: 0 8px 8px 0;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 0.86rem;
+    }
+    a {
+      color: var(--accent);
+    }
+    ul {
+      padding-left: 20px;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <div class="eyebrow">Horizon Daily Essay</div>
+      <h1>Horizon 每日文章 2026-06-28</h1>
+      <p class="deck">2026-06-28 的 Horizon 简报整理成一篇单文，重点集中在三条最值得后续追踪的消息：OpenAI 预览 GPT-5.6 系列，强调更强代理能力与更重的安全加固同时推进；Nature Medicine 指出前沿大模型在健康 AI 中仍存在明显脆弱性，基准高分不等于可用；Hugging Face 用一条命令把私有 vLLM 接口变成可随开随停的实验基础设施。这篇文章保留英文原始摘要、完整中文翻译和关键词汇，目的不是重复新闻，而是把当天最有用的信息压缩成一篇适合回看、搜索和收藏的学习材料。</p>
+    </header>
+    <article class="card">
+  <div class="eyebrow">Item 1</div>
+  <h2>OpenAI 预览 GPT-5.6 系列，强调更强代理能力与更重的安全加固同时推进</h2>
+  <p class="subtitle">Limited Preview of the GPT-5.6 Model Family</p>
+  <div class="meta">
+    <span>Source: OpenAI Blog</span>
+    <span>Date: 2026-06-26</span>
+    <span>Score: 9.4/10</span>
+    <span>Highlight: Yes</span>
+  </div>
+  <div class="tags"><span class="tag">AI news</span><span class="tag">OpenAI</span><span class="tag">reasoning models</span><span class="tag">coding</span><span class="tag">cybersecurity</span></div>
+  <h3>English Summary</h3>
+  <p>OpenAI says it has started a limited preview of the GPT-5.6 family, led by Sol as the flagship model, alongside Terra for balanced everyday use and Luna for lower-cost access. The announcement matters because it combines product positioning, benchmark claims, and deployment policy in one move. OpenAI frames Sol as its strongest model so far, with improved agentic performance in coding, biology, and cybersecurity, plus a new `max` reasoning effort and an `ultra` mode that uses subagents for harder tasks. Just as important, the company is leaning heavily on safeguards: it says Sol launches with its most robust safety stack so far after extensive pressure testing against higher-risk misuse and sensitive cyber requests. For developers and researchers, the practical signal is that model releases are increasingly arriving as full operating packages: capability tiering, safety posture, pricing, caching behavior, and staged rollout strategy now matter almost as much as raw benchmark wins.</p>
+  <h3>中文理解</h3>
+  <p>OpenAI 表示已经启动 GPT-5.6 系列的有限预览，其中 Sol 是旗舰模型，Terra 面向日常平衡使用，Luna 则主打更低成本接入。这条消息的重要性在于，它把产品定位、基准表现和发布策略放在了一次更新里统一呈现。OpenAI 将 Sol 描述为目前最强的模型，并强调它在编程、生物学和网络安全等代理式任务上能力提升，同时引入了新的 `max` 深度推理档位，以及通过 subagents 处理更复杂任务的 `ultra` 模式。同样关键的是，官方把安全能力放到了非常靠前的位置，称 Sol 搭载了迄今最强的一套安全防护，并针对高风险滥用和敏感网络安全请求做了较长时间的压力测试与加固。对开发者和研究者来说，更实际的信号是：如今模型发布越来越像一整套运营方案，能力分层、安全姿态、价格、缓存机制和分阶段开放策略，几乎和跑分本身一样重要。</p>
+  <h3>Vocabulary</h3>
+  <ul><li><strong>flagship model</strong>: 旗舰模型</li><li><strong>staged rollout</strong>: 分阶段发布</li><li><strong>pressure testing</strong>: 压力测试</li><li><strong>safeguard stack</strong>: 防护栈，安全防线组合</li></ul>
+  <p><a href="https://openai.com/index/previewing-gpt-5-6-sol">Read original source</a></p>
+</article><article class="card">
+  <div class="eyebrow">Item 2</div>
+  <h2>Nature Medicine 指出前沿大模型在健康 AI 中仍存在明显脆弱性，基准高分不等于可用</h2>
+  <p class="subtitle">Frontier Models Fail a Harder Health-AI Readiness Test</p>
+  <div class="meta">
+    <span>Source: Nature Medicine</span>
+    <span>Date: 2026-06-26</span>
+    <span>Score: 9.6/10</span>
+    <span>Highlight: Yes</span>
+  </div>
+  <div class="tags"><span class="tag">medical research</span><span class="tag">health AI</span><span class="tag">robustness</span><span class="tag">benchmarking</span><span class="tag">multimodal reasoning</span></div>
+  <h3>English Summary</h3>
+  <p>This Nature Medicine paper is important because it challenges a lazy but common assumption in health AI: that strong benchmark scores are close enough to evidence of clinical readiness. The authors evaluate large frontier models, including GPT-5- and Gemini-class systems, with adversarial stress tests instead of relying on average scores alone. Their results suggest a deeper reliability problem. Some systems can still land on the correct answer even when key inputs are removed, which implies shortcut behavior rather than genuine medical reasoning. At the same time, slight prompt changes can destabilize outputs, and the models may produce reasoning traces that sound persuasive while still being wrong. The study also finds that major health benchmarks differ substantially in what they actually measure, especially for multimodal medical reasoning. For anyone building, reviewing, or deploying medical AI, the message is direct: robustness evidence, clinically meaningful evaluation, and behavior under perturbation need to be treated as core requirements, not optional follow-up checks.</p>
+  <h3>中文理解</h3>
+  <p>这篇《Nature Medicine》论文的重要性在于，它直接挑战了健康 AI 领域一个常见但过于偷懒的前提：模型只要在基准测试上表现很好，就已经差不多具备临床可用性。作者没有只看平均分，而是对包括 GPT-5 和 Gemini 级别在内的大型前沿模型加入了对抗性压力测试。结果显示，问题并不只是“还差一点”，而是可靠性层面存在更深的缺口。有些系统在关键输入被拿掉后依然能答对，说明它们可能依赖捷径而不是真正的医学推理；与此同时，提示语只要发生很小的变化，输出就可能失稳，而且模型还能给出听上去很有说服力、实际上却错误的推理过程。研究还发现，主流健康 AI 基准在“究竟测量了什么”这件事上差异很大，尤其是在多模态医学推理方面。对任何正在构建、评审或部署医疗 AI 的人来说，这篇文章的结论都很直接：稳健性证据、临床相关的评估方式，以及扰动条件下的行为表现，都必须被视为核心门槛，而不是事后补做的附加检查。</p>
+  <h3>Vocabulary</h3>
+  <ul><li><strong>clinical readiness</strong>: 临床就绪度</li><li><strong>adversarial transformation</strong>: 对抗性变换</li><li><strong>shortcut behavior</strong>: 捷径式行为</li><li><strong>perturbation</strong>: 扰动，微小变化</li></ul>
+  <p><a href="https://www.nature.com/articles/s41591-026-04501-8">Read original source</a></p>
+</article><article class="card">
+  <div class="eyebrow">Item 3</div>
+  <h2>Hugging Face 用一条命令把私有 vLLM 接口变成可随开随停的实验基础设施</h2>
+  <p class="subtitle">One-Command Private vLLM Serving on HF Jobs</p>
+  <div class="meta">
+    <span>Source: Hugging Face Blog</span>
+    <span>Date: 2026-06-26</span>
+    <span>Score: 9.2/10</span>
+    <span>Highlight: Yes</span>
+  </div>
+  <div class="tags"><span class="tag">AI tools</span><span class="tag">Hugging Face</span><span class="tag">vLLM</span><span class="tag">model serving</span><span class="tag">infrastructure</span></div>
+  <h3>English Summary</h3>
+  <p>Hugging Face&#x27;s new guide shows a highly practical way to stand up an OpenAI-compatible LLM endpoint without provisioning a long-lived server stack. The workflow uses `hf jobs run` with the official `vllm/vllm-openai` image, requests a GPU flavor, exposes port 8000 through the HF jobs proxy, and returns a URL that can be queried from curl, Python, notebooks, or another application. The article is useful because it makes the tradeoff explicit: HF Jobs is positioned for fast tests, evaluations, batch generation, and experimental agent backends, while Inference Endpoints remains the better fit for production services. It also clarifies several operational details that matter in practice, including token-gated access, per-second billing, explicit cleanup with `hf jobs cancel`, and scaling patterns for larger models through tensor parallelism. For tool builders, the main value is speed: a temporary but real private endpoint lowers the cost of trying ideas, comparing prompts, and wiring self-hosted models into agent workflows.</p>
+  <h3>中文理解</h3>
+  <p>Hugging Face 这篇新指南展示了一种非常实用的做法：不需要先搭建长期运行的服务栈，就能快速拉起一个兼容 OpenAI API 的私有 LLM 接口。它的核心流程是用 `hf jobs run` 调起官方 `vllm/vllm-openai` 镜像，指定 GPU 规格，通过 HF jobs 代理暴露 8000 端口，然后得到一个可以被 curl、Python、笔记本或其他应用直接调用的 URL。文章的价值在于，它把适用边界讲得很清楚：HF Jobs 更适合快速测试、评估、批量生成，以及实验性质的 agent 后端，而 Inference Endpoints 更适合生产环境服务。文中还补齐了不少真正影响落地的细节，例如访问需要 token 鉴权、费用按秒计费、结束后最好用 `hf jobs cancel` 主动清理，以及大模型可以借助 tensor parallelism 做扩展。对工具开发者来说，这种临时但真实可用的私有接口，最大价值就是把试错成本降下来，让验证想法、比较提示词和接入自托管模型到 agent 工作流都更快。</p>
+  <h3>Vocabulary</h3>
+  <ul><li><strong>provision</strong>: 预配，提前配置资源</li><li><strong>token-gated</strong>: 由令牌控制访问的</li><li><strong>tensor parallelism</strong>: 张量并行</li><li><strong>long-lived service</strong>: 长期运行的服务</li></ul>
+  <p><a href="https://huggingface.co/blog/vllm-jobs">Read original source</a></p>
+</article>
+  </main>
+</body>
+</html>
