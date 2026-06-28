@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Horizon 每日文章 2026-06-29</title>
+  <meta name="description" content="2026-06-29 的 Horizon 简报整理成一篇单文，重点集中在三条最值得后续追踪的消息：两千人六千次攻击未泄密，这次公开挑战展示了前沿模型抗提示注入的真实进步与边界；Nature Medicine 提醒健康 AI 不能只看高分，前沿模型是否稳健可用才是真正门槛；`uv 0.11.25` 以 tar 解析加固为核心更新，把 Python 依赖获取的安全底线又抬高了一截。这篇文章保留英文原始摘要、完整中文翻译和关键词汇，目的不是重复新闻，而是把当天最有用的信息压缩成一篇适合回看、搜索和收藏的学习材料。">
+  <style>
+    :root {
+      --bg: #f4efe4;
+      --paper: #fffaf0;
+      --ink: #1f1f1a;
+      --muted: #6b655d;
+      --line: #d8cebd;
+      --accent: #8d4b2b;
+      --accent-soft: #efe0d0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Iowan Old Style", "Palatino Linotype", "Times New Roman", serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top, rgba(141,75,43,0.08), transparent 36%),
+        linear-gradient(180deg, #f8f3ea 0%, var(--bg) 100%);
+      line-height: 1.75;
+    }
+    main {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 56px 20px 80px;
+    }
+    header {
+      margin-bottom: 36px;
+      padding: 28px;
+      border: 1px solid var(--line);
+      background: rgba(255,250,240,0.85);
+      backdrop-filter: blur(8px);
+    }
+    h1, h2, h3 {
+      line-height: 1.2;
+      margin: 0 0 12px;
+    }
+    h1 {
+      font-size: clamp(2rem, 4vw, 3.2rem);
+    }
+    h2 {
+      font-size: clamp(1.5rem, 3vw, 2rem);
+    }
+    h3 {
+      font-size: 1.05rem;
+      margin-top: 22px;
+    }
+    .deck, .subtitle, .meta, .eyebrow {
+      color: var(--muted);
+    }
+    .deck {
+      font-size: 1.05rem;
+      margin-top: 14px;
+    }
+    .card {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      padding: 28px;
+      margin-top: 24px;
+      box-shadow: 0 12px 28px rgba(74, 52, 35, 0.06);
+    }
+    .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.78rem;
+      margin-bottom: 10px;
+    }
+    .subtitle {
+      margin-top: -2px;
+      font-style: italic;
+    }
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 16px;
+      font-size: 0.92rem;
+      margin: 16px 0 10px;
+    }
+    .tag {
+      display: inline-block;
+      margin: 0 8px 8px 0;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 0.86rem;
+    }
+    a {
+      color: var(--accent);
+    }
+    ul {
+      padding-left: 20px;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <div class="eyebrow">Horizon Daily Essay</div>
+      <h1>Horizon 每日文章 2026-06-29</h1>
+      <p class="deck">2026-06-29 的 Horizon 简报整理成一篇单文，重点集中在三条最值得后续追踪的消息：两千人六千次攻击未泄密，这次公开挑战展示了前沿模型抗提示注入的真实进步与边界；Nature Medicine 提醒健康 AI 不能只看高分，前沿模型是否稳健可用才是真正门槛；`uv 0.11.25` 以 tar 解析加固为核心更新，把 Python 依赖获取的安全底线又抬高了一截。这篇文章保留英文原始摘要、完整中文翻译和关键词汇，目的不是重复新闻，而是把当天最有用的信息压缩成一篇适合回看、搜索和收藏的学习材料。</p>
+    </header>
+    <article class="card">
+  <div class="eyebrow">Item 1</div>
+  <h2>两千人六千次攻击未泄密，这次公开挑战展示了前沿模型抗提示注入的真实进步与边界</h2>
+  <p class="subtitle">Hardening an AI Assistant Against Prompt Injection at Scale</p>
+  <div class="meta">
+    <span>Source: Simon Willison</span>
+    <span>Date: 2026-06-26</span>
+    <span>Score: 9.5/10</span>
+    <span>Highlight: Yes</span>
+  </div>
+  <div class="tags"><span class="tag">AI security</span><span class="tag">prompt injection</span><span class="tag">agent safety</span><span class="tag">model evaluation</span><span class="tag">email agents</span></div>
+  <h3>English Summary</h3>
+  <p>This item stands out because it moves the prompt-injection debate from theory to an observable stress test. Fernando Irarrázaval invited roughly 2,000 people to attack an email-connected AI assistant, producing around 6,000 attempts and about $500 in token spend, yet none of those attacks managed to extract the protected secret. The summary points to a concrete defensive policy: the system explicitly refused to reveal credentials, modify its own files, execute commands from inbound email, or send data to outside endpoints. That makes the result useful for anyone building agentic tools, since it suggests recent frontier-model training has improved resistance to common jailbreak and exfiltration patterns. At the same time, the case does not justify complacency. A failed attack campaign is evidence of progress, not proof of security, and the main practical lesson is to combine stronger model behavior with strict action boundaries, limited permissions, and deployment designs that assume a clever attacker will keep trying.</p>
+  <h3>中文理解</h3>
+  <p>这条候选最有价值的地方，在于它把“提示注入到底有多危险”这个常见争论，从抽象讨论推进到了可观察的压力测试。Fernando Irarrázaval 公开邀请大约 2,000 人去攻击一个可收发邮件的 AI 助手，累计形成约 6,000 次尝试、约 500 美元的 token 开销，但最终没有任何一次成功泄露受保护的 secret。候选摘要还给出了比较明确的防御边界：系统被明确要求不得暴露凭据、不得修改自身文件、不得执行来自邮件的命令，也不得向外部端点发送数据。对正在做 agent 工具的人来说，这很有参考价值，因为它说明前沿模型近期在抵御常见 jailbreak 与数据外泄模式上，确实可能比过去更强了。但这并不等于可以放松警惕。一次大规模失败攻击更像“能力进步的证据”，而不是“安全已经被证明”。真正可执行的结论是：更强的模型行为必须和严格的动作边界、最小权限以及默认存在聪明攻击者的部署设计一起使用。</p>
+  <h3>Vocabulary</h3>
+  <ul><li><strong>prompt injection</strong>: 提示注入</li><li><strong>exfiltration</strong>: 数据外泄</li><li><strong>strict action boundaries</strong>: 严格的动作边界</li><li><strong>limited permissions</strong>: 最小权限</li></ul>
+  <p><a href="https://simonwillison.net/2026/Jun/26/hack-my-ai-assistant/#atom-everything">Read original source</a></p>
+</article><article class="card">
+  <div class="eyebrow">Item 2</div>
+  <h2>Nature Medicine 提醒健康 AI 不能只看高分，前沿模型是否稳健可用才是真正门槛</h2>
+  <p class="subtitle">Health AI Needs Robustness Evidence, Not Just Good Scores</p>
+  <div class="meta">
+    <span>Source: Nature Medicine</span>
+    <span>Date: 2026-06-26</span>
+    <span>Score: 9.4/10</span>
+    <span>Highlight: Yes</span>
+  </div>
+  <div class="tags"><span class="tag">medical research</span><span class="tag">health AI</span><span class="tag">robustness</span><span class="tag">evaluation</span><span class="tag">frontier models</span></div>
+  <h3>English Summary</h3>
+  <p>Even without a long abstract in the candidate feed, the title and venue make this one unusually important for clinical and research workflows. A Nature Medicine paper focused on the robustness and readiness of large frontier models in health AI is signaling a higher standard than simple benchmark performance. The key issue is not whether a model can answer some medical questions correctly under favorable conditions, but whether it remains dependable when inputs are incomplete, prompts shift slightly, tasks become multimodal, or the surrounding workflow becomes messy in realistic practice. That distinction matters for anyone using LLMs in medical reading, triage support, research synthesis, or decision support design. A strong average score can hide brittle behavior, shortcut reasoning, or unsafe sensitivity to formatting changes. The practical takeaway is to treat robustness testing, clinically relevant evaluation, and deployment constraints as first-class requirements. In health settings, readiness should mean evidence of stable behavior under stress, not just impressive numbers on a leaderboard.</p>
+  <h3>中文理解</h3>
+  <p>虽然候选源里没有给出较长摘要，但仅凭标题和发表渠道，这篇内容对临床和科研工作流就已经非常重要。《Nature Medicine》把焦点直接放在“大型前沿模型在健康 AI 场景中的稳健性和就绪度”上，本身就意味着它要求的标准高于常见的基准分数比较。真正关键的问题并不是模型在理想条件下能不能答对一些医学问题，而是当输入不完整、提示语稍有变化、任务变成多模态、或者真实工作流本身很混乱时，它是否仍然稳定可靠。这个区分对于把 LLM 用在医学阅读、分诊辅助、科研综述或决策支持设计中的人尤其重要。平均分很高，仍然可能掩盖模型在边界条件下的脆弱性、捷径式推理，或者对格式变化过度敏感的风险。更实际的结论是：在健康场景里，稳健性测试、与临床任务真正相关的评估方式，以及上线时的约束条件，都应该被当成一等公民。所谓“可以用”，应当意味着有受压条件下仍稳定的证据，而不只是排行榜上的好看数字。</p>
+  <h3>Vocabulary</h3>
+  <ul><li><strong>robustness</strong>: 稳健性</li><li><strong>multimodal</strong>: 多模态的</li><li><strong>clinically relevant evaluation</strong>: 临床相关评估</li><li><strong>brittle behavior</strong>: 脆弱行为</li></ul>
+  <p><a href="https://www.nature.com/articles/s41591-026-04501-8">Read original source</a></p>
+</article><article class="card">
+  <div class="eyebrow">Item 3</div>
+  <h2>`uv 0.11.25` 以 tar 解析加固为核心更新，把 Python 依赖获取的安全底线又抬高了一截</h2>
+  <p class="subtitle">uv 0.11.25 Raises the Floor on Python Package Safety</p>
+  <div class="meta">
+    <span>Source: GitHub astral-sh/uv</span>
+    <span>Date: 2026-06-27</span>
+    <span>Score: 9.1/10</span>
+    <span>Highlight: No</span>
+  </div>
+  <div class="tags"><span class="tag">Python tooling</span><span class="tag">package security</span><span class="tag">uv</span><span class="tag">lockfiles</span><span class="tag">dependency management</span></div>
+  <h3>English Summary</h3>
+  <p>This release is more than a routine package-manager bump because its most prominent change is defensive. `uv 0.11.25` updates the underlying tar-handling library to a newer version with more than twenty hardening changes aimed at parser differentials and ambiguous archive behavior. In practice, that means `uv` may now reject malformed or unclear source distributions that earlier versions would have accepted, which is exactly the kind of compatibility break that is often worth taking for supply-chain safety. Beyond the security angle, the release also improves tool receipts, scoped dependency overrides and exclusions, lockfile behavior, and preview features around environment management. For day-to-day engineering work, the important signal is that modern package tooling is increasingly treating archive parsing and metadata interpretation as security-sensitive surfaces rather than boring plumbing. If your workflow depends on repeatable Python environments, this update is worth noticing not because it adds flashy features, but because it narrows a quiet class of risks in dependency ingestion.</p>
+  <h3>中文理解</h3>
+  <p>这个版本不只是一次普通的包管理器小更新，因为它最值得注意的变化其实是防御性的。`uv 0.11.25` 升级了底层 tar 处理库，新版本包含二十多项加固改动，目标直指 parser differentials 和归档内容歧义这类容易被忽视的问题。落到实际使用上，这意味着 `uv` 现在可能会拒绝一些旧版本曾经接受过的畸形或含糊不清的源码分发包；从兼容性角度看，这或许会带来一点摩擦，但从供应链安全角度看，这类“更严格地拒绝可疑输入”通常是值得的。除安全更新外，这个版本还补强了 tool receipts、作用域级依赖覆盖与排除、lockfile 行为，以及环境管理方向的一些预览功能。对日常工程工作来说，更重要的信号在于：现代包工具已经不再把归档解析和元数据解释视为无聊的底层细节，而是明确当作安全敏感面来处理。如果你的流程依赖可重复的 Python 环境，这个版本值得关注，不是因为它有多炫的功能，而是因为它收紧了一类平时不容易被看见的依赖摄入风险。</p>
+  <h3>Vocabulary</h3>
+  <ul><li><strong>supply-chain safety</strong>: 供应链安全</li><li><strong>parser differentials</strong>: 解析器差异问题</li><li><strong>malformed distribution</strong>: 畸形分发包</li><li><strong>dependency ingestion</strong>: 依赖摄入过程</li></ul>
+  <p><a href="https://github.com/astral-sh/uv/releases/tag/0.11.25">Read original source</a></p>
+</article>
+  </main>
+</body>
+</html>
